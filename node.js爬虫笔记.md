@@ -38,9 +38,8 @@ const Movie = function() {
 	this.ranking = 0
 	this.coverUrl = ''
 }
-```
+
 // 这个函数来从一个电影 div 里面读取电影信息
-```
 const movieFromDiv = function(div) {
 	const movie = new Movie()
 	// 使用 cheerio.load 函数来返回一个可以查询的特殊对象
@@ -103,10 +102,43 @@ const moviesFromUrl = function(url) {
 		}
 	})
 }
+
+const downloadCovers = function(movies) {
+    for (let i = 0; i < movies.length; i++) {
+        const m = movies[i]
+        const url = m.coverUrl
+        const path = m.name.split('/')[0] + '.jpg'
+        request(url).pipe(fs.createWriteStream(path))
+	
+	}
+}
 const __main = function() {
 	// 这是主函数
 	// 下载网页, 解析出电影信息, 保存到文件
 	const url = 'https://movie.douban.com/top250'
 	moviesFromUrl(url)
 }
+
+'''
+#### 我们在爬取网页的时候尤其要注意编码格式。一旦爬取的编码格式和输出的编码格式不一致将会产生乱码。
+#### 所以遇到较为早期的网站用的是非utf-8编码的将会比较头疼。
+这里使用向外暴露js函数的方法，外部js文件引用其他的js函数。
+
+'''
+const saveJSON = function(path, answers) {
+    // 用来把一个保存了所有电影对象的数组保存到文件中
+    const fs = require('fs')
+    const s = JSON.stringify(answers, null, 2)
+    fs.writeFile(path, s, function(error) {
+        if (error !== null) {
+            console.log('*** 写入文件错误', error)
+        } else {
+            console.log('--- 保存成功')
+        }
+    })
+}
+
+
+// 通过 exports 制作自己的模块
+exports.saveJSON = saveJSON
 
