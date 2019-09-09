@@ -28,9 +28,11 @@ npm install request cheerio
 
 
 (```) 
-const Movie = function() {
+
 // 定义一个类来保存电影的信息
 // 分别是  电影名 评分 引言 排名 封面图片地址
+const Movie = function() {
+
 	this.name = ''
 	this.score = 0
 	this.quote = ''
