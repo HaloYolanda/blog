@@ -27,7 +27,7 @@ npm install request cheerio
 输出或存储信息（console\fs\mongodb等）<br>
 
 
-(```) 
+、、、
 
 // 定义一个类来保存电影的信息
 // 分别是  电影名 评分 引言 排名 封面图片地址
@@ -39,6 +39,7 @@ const Movie = function() {
 	this.ranking = 0
 	this.coverUrl = ''
 }
+、、、
 const movieFromDiv = function(div) {
 	// 这个函数来从一个电影 div 里面读取电影信息
 	const movie = new Movie()
