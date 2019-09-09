@@ -26,8 +26,8 @@ npm install request cheerio
 筛选网页信息（cheerio）<br>
 输出或存储信息（console\fs\mongodb等）<br>
 
-:[image](https://raw.githubusercontent.com/HaloYolanda/blog/master/imgs/json.png)
-:[image](https://raw.githubusercontent.com/HaloYolanda/blog/master/imgs/photos.png)
+![images](https://raw.githubusercontent.com/HaloYolanda/blog/master/imgs/json.png)
+![image](https://raw.githubusercontent.com/HaloYolanda/blog/master/imgs/photos.png)
 
 ### 代码如下：
 ```
