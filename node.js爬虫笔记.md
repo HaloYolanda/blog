@@ -10,23 +10,25 @@
 ### 优势：
   而非阻塞模式下，一个线程永远在执行计算操作，这个线程的CPU核心利用率永远是100%，操作系统完全不再有线程创建、销毁的时间开销
 ### Node.js适合用来开发什么样的应用程序呢？
-善于I/O，不善于计算。因为Node.js最擅长的就是任务调度，如果业务有很多的CPU计算，实际上也相当于这个计算阻塞了这个单线程，就不适合Node开发。适合与web socket配合，开发长连接的实时交互应用程序。例如：聊天室、图文直播等
+善于I/O，不善于计算。因为Node.js最擅长的就是任务调度，如果业务有很多的CPU计算，实际上也相当于这个计算阻塞了这个单线程，就不适合Node开发。<br>
+适合与web socket配合，开发长连接的实时交互应用程序。例如：聊天室、图文直播等
 
 ## 豆瓣电影爬虫
 #### 需要安装两个基本的依赖和一个文件系统模块<br>
-request ：用于下载网页
+request ：用于下载网页<br>
 cheerio ：用于解析网页数据，是处理网页文档的利器
 fs ：nodejs文件系统模块
-#### 安装依赖命令如下
+#### 安装依赖命令如下 <br>
 npm install request cheerio
 
 #### 分析一下，一个网络爬虫要做的事情：
-获取网页内容（http\request\superagent等）
-筛选网页信息（cheerio）
-输出或存储信息（console\fs\mongodb等）
+获取网页内容（http\request\superagent等）<br>
+筛选网页信息（cheerio）<br>
+输出或存储信息（console\fs\mongodb等）<br>
 
 
-(```) const Movie = function() {
+(```) 
+const Movie = function() {
 // 定义一个类来保存电影的信息
 // 分别是  电影名 评分 引言 排名 封面图片地址
 	this.name = ''
@@ -35,9 +37,6 @@ npm install request cheerio
 	this.ranking = 0
 	this.coverUrl = ''
 }
-
-
-
 const movieFromDiv = function(div) {
 	// 这个函数来从一个电影 div 里面读取电影信息
 	const movie = new Movie()
@@ -73,8 +72,6 @@ const saveMovies = function(movies) {
 		}
 	})
 }
-
-
 const moviesFromUrl = function(url) {
 	// request 从一个 url 下载数据并调用回调函数
 	request(url, function(error, response, body) {
@@ -103,7 +100,6 @@ const moviesFromUrl = function(url) {
 		}
 	})
 }
-
 const __main = function() {
 	// 这是主函数
 	// 下载网页, 解析出电影信息, 保存到文件
