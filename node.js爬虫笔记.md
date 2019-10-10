@@ -123,10 +123,11 @@ const __main = function() {
 }
 
 '''
+
 #### 我们在爬取网页的时候尤其要注意编码格式。一旦爬取的编码格式和输出的编码格式不一致将会产生乱码。
 #### 所以遇到较为早期的网站用的是非utf-8编码的将会比较头疼。
 这里使用向外暴露js函数的方法，外部js文件引用其他的js函数。
-
+ 
 '''
 const saveJSON = function(path, answers) {
     // 用来把一个保存了所有电影对象的数组保存到文件中
@@ -147,6 +148,7 @@ exports.saveJSON = saveJSON
 '''
 
 - 将保存的txt数据另存为json文件，再用python代码转化成csv文件用excel打开
+
 '''
 # 代码如下
 import csv
@@ -174,3 +176,4 @@ for row in rows:
 # 关闭打开的文件
 f.close()
 '''
+![image](https://github.com/HaloYolanda/blog/blob/master/imgs/excel.png)
