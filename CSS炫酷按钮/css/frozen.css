@@ -1,0 +1,55 @@
+#frozen-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+button {
+  border: 0;
+  margin: 20px;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 15px 50px;
+  border-radius: 50px;
+  color: white;
+  outline: none;
+  position: relative;
+}
+
+button:before{
+  content: '';
+  display: block;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.4) 50%);
+  background-size: 210% 100%;
+  background-position: right bottom;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom:0;
+  right:0;
+  left: 0;
+  border-radius: 50px;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+}
+
+.green {
+   background-image: linear-gradient(to right, #e65c25, #f7f322);
+   box-shadow: 0 4px 15px 0 rgba(231, 143, 28, 0.75);
+}
+
+.purple {
+   background-image: linear-gradient(to right, #2513ce, rgb(214, 80, 231));
+   box-shadow: 0 4px 15px 0 rgba(76, 48, 204, 0.884);
+}
+  
+.purple:hover:before {
+  background-position: left bottom;
+}
+
+.green:hover:before {
+  background-position: left bottom;
+}
